@@ -1,0 +1,37 @@
+site_name: Git & GitHub Guide
+site_description: Guida completa a Git e GitHub
+site_author: Your Name
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Introduction:
+      - Cos'è Git: 01-introduction/cos-e-git.md
+      - Installazione: 01-introduction/installazione.md
+  - Basics:
+      - Init, Add, Commit: 02-basics/init-add-commit.md
+      - Log & Status: 02-basics/log-status.md
+  - Branching:
+      - Branch: 03-branching/branch.md
+      - Merge: 03-branching/merge.md
+  - Remote:
+      - GitHub: 04-remote/github.md
+      - Push & Pull: 04-remote/push-pull.md
+  - Advanced:
+      - Rebase: 05-advanced/rebase.md
+      - Cherry-pick: 05-advanced/cherry-pick.md
+  - Best Practices:
+      - Workflow: 06-best-practices/workflow.md
+      - Naming: 06-best-practices/naming.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+
+plugins:
+  - search
