@@ -1,0 +1,122 @@
+PS C:\github.com\git-github-guide> gsync
+Checking git repository...
+Running MkDocs build (validation)...
+
+ │  ⚠  Warning from the Material for MkDocs team
+ │
+ │  MkDocs 2.0, the underlying framework of Material for MkDocs,
+ │  will introduce backward-incompatible changes, including:
+ │
+ │  × All plugins will stop working – the plugin system has been removed
+ │  × All theme overrides will break – the theming system has been rewritten
+ │  × No migration path exists – existing projects cannot be upgraded
+ │  × Closed contribution model – community members can't report bugs
+ │  × Currently unlicensed – unsuitable for production use
+ │
+ │  Our full analysis:
+ │
+ │  https://squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/
+
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: C:\github.com\git-github-guide\site
+INFO    -  Documentation built in 0.40 seconds
+MkDocs build OK
+Adding files...
+warning: in the working copy of 'site/01-fondamenta/parte-1-fondamenta/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/02-workflow-base/parte-2-workflow-base/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/03-github-remoto/parte-3-github/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/04-workflow-reali/parte-4-workflow-reali/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/05-best-practices/parte-5-best-practices/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/06-troubleshooting/parte-6-troubleshooting/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/404.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/bundle.79ae519e.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/bundle.79ae519e.min.js.map', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.da.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.de.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.du.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.es.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.fi.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.fr.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.hu.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.it.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.nl.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.no.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.pt.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.ro.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.ru.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.sv.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/min/lunr.tr.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/tinyseg.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/lunr/wordcut.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/workers/search.2c215733.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/assets/javascripts/workers/search.2c215733.min.js.map', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'site/sitemap.xml', LF will be replaced by CRLF the next time Git touches it
+Committing...
+[main 91413ab] update docs
+ 55 files changed, 13118 insertions(+), 7 deletions(-)
+ create mode 100644 site/01-fondamenta/parte-1-fondamenta/index.html
+ create mode 100644 site/02-workflow-base/parte-2-workflow-base/index.html
+ create mode 100644 site/03-github-remoto/parte-3-github/index.html
+ create mode 100644 site/04-workflow-reali/parte-4-workflow-reali/index.html
+ create mode 100644 site/05-best-practices/parte-5-best-practices/index.html
+ create mode 100644 site/06-troubleshooting/parte-6-troubleshooting/index.html
+ create mode 100644 site/404.html
+ create mode 100644 site/assets/images/favicon.png
+ create mode 100644 site/assets/javascripts/bundle.79ae519e.min.js
+ create mode 100644 site/assets/javascripts/bundle.79ae519e.min.js.map
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ar.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.da.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.de.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.du.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.el.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.es.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.fi.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.fr.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.he.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.hi.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.hu.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.hy.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.it.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ja.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.jp.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.kn.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ko.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.multi.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.nl.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.no.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.pt.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ro.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ru.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.sa.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.stemmer.support.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.sv.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.ta.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.te.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.th.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.tr.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.vi.min.js
+ create mode 100644 site/assets/javascripts/lunr/min/lunr.zh.min.js
+ create mode 100644 site/assets/javascripts/lunr/tinyseg.js
+ create mode 100644 site/assets/javascripts/lunr/wordcut.js
+ create mode 100644 site/assets/javascripts/workers/search.2c215733.min.js
+ create mode 100644 site/assets/javascripts/workers/search.2c215733.min.js.map
+ create mode 100644 site/assets/stylesheets/main.484c7ddc.min.css
+ create mode 100644 site/assets/stylesheets/main.484c7ddc.min.css.map
+ create mode 100644 site/assets/stylesheets/palette.ab4e12ef.min.css
+ create mode 100644 site/assets/stylesheets/palette.ab4e12ef.min.css.map
+ create mode 100644 site/index.html
+ create mode 100644 site/search/search_index.json
+ create mode 100644 site/sitemap.xml
+ create mode 100644 site/sitemap.xml.gz
+Pushing to origin/main...
+Enumerating objects: 82, done.
+Counting objects: 100% (82/82), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (65/65), done.
+Writing objects: 100% (79/79), 628.03 KiB | 6.16 MiB/s, done.
+Total 79 (delta 10), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (10/10), completed with 3 local objects.
+To https://github.com/erbussola/git-github-guide.git
+   d0403f5..91413ab  main -> main
+SUCCESS: Push completato!

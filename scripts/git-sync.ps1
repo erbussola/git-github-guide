@@ -30,7 +30,7 @@ Write-Host "MkDocs build OK"
 
 # Git flow
 Write-Host "Adding files..."
-git add .
+git add docs mkdocs.yml README.md
 
 Write-Host "Committing..."
 git commit -m "$Message"
