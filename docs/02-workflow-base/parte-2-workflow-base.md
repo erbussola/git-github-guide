@@ -7,9 +7,7 @@ Imparerai il flusso corretto usato ogni giorno da sysadmin e dev.
 
 ## 🧠 Mental Model del Workflow Git
 
-```id="vbf5lp"
 Working Directory → Staging Area → Repository (commit)
-```
 
 | Fase                 | Comando      |
 | -------------------- | ------------ |
