@@ -1,0 +1,669 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guida completa a Git e GitHub">
+      
+      
+        <meta name="author" content="Fabrizio Biscossi">
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../02-workflow-base/parte-2-workflow-base/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Parte 1 - Fondamenta - Git & GitHub Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guida-git-github-percorso-completo" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Git &amp; GitHub Guide" class="md-header__button md-logo" aria-label="Git & GitHub Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git & GitHub Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Parte 1 - Fondamenta
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Git &amp; GitHub Guide" class="md-nav__button md-logo" aria-label="Git & GitHub Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git & GitHub Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 1 - Fondamenta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-workflow-base/parte-2-workflow-base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 2 - Workflow Base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-github-remoto/parte-3-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 3 - GitHub Remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-workflow-reali/parte-4-workflow-reali/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 4 - Workflow Reali
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-best-practices/parte-5-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 5 - Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-troubleshooting/parte-6-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 6 - Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="guida-git-github-percorso-completo">Guida Git &amp; GitHub – Percorso Completo<a class="headerlink" href="#guida-git-github-percorso-completo" title="Permanent link">&para;</a></h1>
+<h1 id="parte-16-fondamenta-git-vs-github-setup-completo">Parte 1/6 – Fondamenta: Git vs GitHub + Setup completo<a class="headerlink" href="#parte-16-fondamenta-git-vs-github-setup-completo" title="Permanent link">&para;</a></h1>
+<h2 id="1-git-vs-github-capirlo-subito">1. Git vs GitHub (capirlo subito ✔️)<a class="headerlink" href="#1-git-vs-github-capirlo-subito" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concetto</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Git</strong></td>
+<td>Sistema di versionamento distribuito (locale)</td>
+</tr>
+<tr>
+<td><strong>GitHub</strong></td>
+<td>Piattaforma cloud per ospitare repository Git</td>
+</tr>
+</tbody>
+</table>
+<p>👉 In pratica:</p>
+<ul>
+<li><strong>Git = strumento CLI sul tuo PC/server</strong></li>
+<li><strong>GitHub = server remoto dove salvi e collabori</strong></li>
+</ul>
+<p>💡 Mental model:</p>
+<div class="highlight"><pre><span></span><code>[ tuo PC ] --git push--&gt; [ GitHub ]
+</code></pre></div>
+<hr />
+<h2 id="2-installazione-git-multi-piattaforma">2. Installazione Git (multi-piattaforma)<a class="headerlink" href="#2-installazione-git-multi-piattaforma" title="Permanent link">&para;</a></h2>
+<h3 id="linux-debianubuntu">🔹 Linux (Debian/Ubuntu)<a class="headerlink" href="#linux-debianubuntu" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="linux-rhelcentos">🔹 Linux (RHEL/CentOS)<a class="headerlink" href="#linux-rhelcentos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="macos-con-homebrew">🔹 macOS (con Homebrew)<a class="headerlink" href="#macos-con-homebrew" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>git
+</code></pre></div>
+<h3 id="windows-powershell">🔹 Windows (PowerShell)<a class="headerlink" href="#windows-powershell" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">winget</span> <span class="n">install</span> <span class="p">-</span><span class="n">-id</span> <span class="n">Git</span><span class="p">.</span><span class="n">Git</span> <span class="n">-e</span> <span class="p">-</span><span class="n">-source</span> <span class="n">winget</span>
+</code></pre></div>
+<p>Oppure scarica da:
+👉 <a href="https://git-scm.com">https://git-scm.com</a></p>
+<hr />
+<h2 id="3-verifica-installazione">3. Verifica installazione<a class="headerlink" href="#3-verifica-installazione" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>--version
+</code></pre></div>
+<p>Output atteso:</p>
+<div class="highlight"><pre><span></span><code>git version 2.x.x
+</code></pre></div>
+<hr />
+<h2 id="4-configurazione-iniziale-obbligatoria">4. Configurazione iniziale (OBBLIGATORIA)<a class="headerlink" href="#4-configurazione-iniziale-obbligatoria" title="Permanent link">&para;</a></h2>
+<p>⚠️ Senza questo Git non funzionerà correttamente per i commit</p>
+<h3 id="cross-platform-bash-powershell-macos-linux">Cross-platform (Bash / PowerShell / macOS / Linux)<a class="headerlink" href="#cross-platform-bash-powershell-macos-linux" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Mario Rossi&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;mario@example.com&quot;</span>
+</code></pre></div>
+<p>Verifica:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--list
+</code></pre></div>
+<hr />
+<h2 id="5-editor-di-default-consigliato">5. Editor di default (consigliato)<a class="headerlink" href="#5-editor-di-default-consigliato" title="Permanent link">&para;</a></h2>
+<h3 id="linux-macos-vim-o-nano">Linux / macOS (vim o nano)<a class="headerlink" href="#linux-macos-vim-o-nano" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;nano&quot;</span>
+</code></pre></div>
+<h3 id="windows-vs-code">Windows (VS Code)<a class="headerlink" href="#windows-vs-code" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">core</span><span class="p">.</span><span class="n">editor</span> <span class="s2">&quot;code --wait&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="6-configurazione-ssh-fondamentale-per-github">6. Configurazione SSH (fondamentale per GitHub 🔐)<a class="headerlink" href="#6-configurazione-ssh-fondamentale-per-github" title="Permanent link">&para;</a></h2>
+<p>💡 Evita username/password → usa chiavi SSH</p>
+<hr />
+<h3 id="61-genera-chiave-ssh">6.1 Genera chiave SSH<a class="headerlink" href="#61-genera-chiave-ssh" title="Permanent link">&para;</a></h3>
+<h4 id="linux-macos-git-bash">Linux / macOS / Git Bash<a class="headerlink" href="#linux-macos-git-bash" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;mario@example.com&quot;</span>
+</code></pre></div>
+<h4 id="windows-powershell_1">Windows (PowerShell)<a class="headerlink" href="#windows-powershell_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">ssh-keygen</span> <span class="n">-t</span> <span class="n">ed25519</span> <span class="n">-C</span> <span class="s2">&quot;mario@example.com&quot;</span>
+</code></pre></div>
+<p>Premi sempre <code>Enter</code> (default path)</p>
+<hr />
+<h3 id="62-avvia-ssh-agent">6.2 Avvia SSH agent<a class="headerlink" href="#62-avvia-ssh-agent" title="Permanent link">&para;</a></h3>
+<h4 id="linux-macos">Linux / macOS<a class="headerlink" href="#linux-macos" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
+ssh-add<span class="w"> </span>~/.ssh/id_ed25519
+</code></pre></div>
+<h4 id="windows-powershell_2">Windows (PowerShell)<a class="headerlink" href="#windows-powershell_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">Start-Service</span> <span class="n">ssh-agent</span>
+<span class="n">ssh-add</span> <span class="nv">$env:USERPROFILE</span><span class="p">\.</span><span class="n">ssh</span><span class="p">\</span><span class="n">id_ed25519</span>
+</code></pre></div>
+<hr />
+<h3 id="63-copia-chiave-pubblica">6.3 Copia chiave pubblica<a class="headerlink" href="#63-copia-chiave-pubblica" title="Permanent link">&para;</a></h3>
+<h4 id="linux-macos_1">Linux / macOS<a class="headerlink" href="#linux-macos_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
+</code></pre></div>
+<h4 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">type </span><span class="nv">$env:USERPROFILE</span><span class="p">\.</span><span class="n">ssh</span><span class="p">\</span><span class="n">id_ed25519</span><span class="p">.</span><span class="n">pub</span>
+</code></pre></div>
+<p>👉 Copia output</p>
+<hr />
+<h3 id="64-aggiungi-chiave-su-github">6.4 Aggiungi chiave su GitHub<a class="headerlink" href="#64-aggiungi-chiave-su-github" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Vai su GitHub → Settings</li>
+<li>SSH and GPG Keys</li>
+<li>New SSH Key</li>
+<li>Incolla la chiave</li>
+</ol>
+<hr />
+<h3 id="65-test-connessione">6.5 Test connessione<a class="headerlink" href="#65-test-connessione" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-T<span class="w"> </span>git@github.com
+</code></pre></div>
+<p>Output atteso:</p>
+<div class="highlight"><pre><span></span><code>Hi username! You&#39;ve successfully authenticated
+</code></pre></div>
+<hr />
+<h2 id="7-primo-repository-locale-hands-on">7. Primo repository locale (hands-on 🔨🤖🔧)<a class="headerlink" href="#7-primo-repository-locale-hands-on" title="Permanent link">&para;</a></h2>
+<h3 id="scenario-reale-repo-per-script-sysadmin">Scenario reale: repo per script sysadmin<a class="headerlink" href="#scenario-reale-repo-per-script-sysadmin" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>sysadmin-scripts
+<span class="nb">cd</span><span class="w"> </span>sysadmin-scripts
+git<span class="w"> </span>init
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code>Initialized empty Git repository
+</code></pre></div>
+<hr />
+<h2 id="8-primo-file-esempio-bash">8. Primo file (esempio Bash)<a class="headerlink" href="#8-primo-file-esempio-bash" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;#!/bin/bash&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>backup.sh
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;echo &quot;Backup started&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>backup.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>backup.sh
+</code></pre></div>
+<hr />
+<h2 id="9-stato-repository-comando-piu-importante">9. Stato repository (comando più importante ❗)<a class="headerlink" href="#9-stato-repository-comando-piu-importante" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div>
+<p>Output tipico:</p>
+<div class="highlight"><pre><span></span><code>Untracked files:
+  backup.sh
+</code></pre></div>
+<hr />
+<h2 id="10-primo-commit">10. Primo commit<a class="headerlink" href="#10-primo-commit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>backup.sh
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add initial backup script&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="checklist-operativa-parte-1">📌 Checklist operativa (Parte 1)<a class="headerlink" href="#checklist-operativa-parte-1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] Git installato</li>
+<li>[ ] User configurato</li>
+<li>[ ] SSH configurato</li>
+<li>[ ] Test SSH OK</li>
+<li>[ ] Repo locale creato</li>
+<li>[ ] Primo commit fatto</li>
+</ul>
+<hr />
+<h2 id="errori-comuni-gia-qui">🚨 Errori comuni già qui<a class="headerlink" href="#errori-comuni-gia-qui" title="Permanent link">&para;</a></h2>
+<h3 id="please-tell-me-who-you-are">❌ "Please tell me who you are"<a class="headerlink" href="#please-tell-me-who-you-are" title="Permanent link">&para;</a></h3>
+<p>👉 Soluzione:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;...&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;...&quot;</span>
+</code></pre></div>
+<hr />
+<h3 id="permesso-negato-ssh">❌ Permesso negato SSH<a class="headerlink" href="#permesso-negato-ssh" title="Permanent link">&para;</a></h3>
+<p>👉 Controlla:</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-T<span class="w"> </span>git@github.com
+</code></pre></div>
+<hr />
+<h3 id="file-non-tracciato">❌ File non tracciato<a class="headerlink" href="#file-non-tracciato" title="Permanent link">&para;</a></h3>
+<p>👉 Usa:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;
+</code></pre></div>
+<hr />
+<h2 id="fine-parte-1">✅ Fine Parte 1<a class="headerlink" href="#fine-parte-1" title="Permanent link">&para;</a></h2>
+<p>Hai ora:</p>
+<ul>
+<li>Git funzionante</li>
+<li>SSH configurato</li>
+<li>Primo repository locale</li>
+</ul>
+<hr />
+<p>👉 Scrivi <strong>"continua"</strong> per la <strong>Parte 2: Workflow Git completo (init → push)</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

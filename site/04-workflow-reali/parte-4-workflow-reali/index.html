@@ -1,0 +1,749 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guida completa a Git e GitHub">
+      
+      
+        <meta name="author" content="Fabrizio Biscossi">
+      
+      
+      
+        <link rel="prev" href="../../03-github-remoto/parte-3-github/">
+      
+      
+        <link rel="next" href="../../05-best-practices/parte-5-best-practices/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Parte 4 - Workflow Reali - Git & GitHub Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#parte-46-workflow-reali-script-markdown-branching-strategy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Git &amp; GitHub Guide" class="md-header__button md-logo" aria-label="Git & GitHub Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git & GitHub Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Parte 4 - Workflow Reali
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Git &amp; GitHub Guide" class="md-nav__button md-logo" aria-label="Git & GitHub Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git & GitHub Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fondamenta/parte-1-fondamenta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 1 - Fondamenta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-workflow-base/parte-2-workflow-base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 2 - Workflow Base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-github-remoto/parte-3-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 3 - GitHub Remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 4 - Workflow Reali
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-best-practices/parte-5-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 5 - Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-troubleshooting/parte-6-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 6 - Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="parte-46-workflow-reali-script-markdown-branching-strategy">Parte 4/6 – Workflow reali (script, Markdown, branching strategy)<a class="headerlink" href="#parte-46-workflow-reali-script-markdown-branching-strategy" title="Permanent link">&para;</a></h1>
+<p>Qui passiamo dalla teoria alla <strong>vita reale da Sysadmin / Infrastructure Engineer</strong> 🔨🤖🔧
+Vedrai <strong>casi concreti replicabili</strong>: script, documentazione e lavoro in team.</p>
+<hr />
+<h1 id="1-workflow-reale-1-versionamento-script-bash">1. Workflow reale #1 – Versionamento script Bash<a class="headerlink" href="#1-workflow-reale-1-versionamento-script-bash" title="Permanent link">&para;</a></h1>
+<h2 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h2>
+<p>Stai sviluppando uno script di backup che evolve nel tempo.</p>
+<hr />
+<h2 id="11-struttura-repo">1.1 Struttura repo<a class="headerlink" href="#11-struttura-repo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sysadmin-scripts/
+├──<span class="w"> </span>backup.sh
+├──<span class="w"> </span>cleanup.sh
+├──<span class="w"> </span>README.md
+</code></pre></div>
+<hr />
+<h2 id="12-versione-iniziale">1.2 Versione iniziale<a class="headerlink" href="#12-versione-iniziale" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;#!/bin/bash&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>backup.sh
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;echo &quot;Backup started&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>backup.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>backup.sh
+</code></pre></div>
+<p>Commit:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>backup.sh
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: initial backup script&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<hr />
+<h2 id="13-evoluzione-reale-dello-script">1.3 Evoluzione reale dello script<a class="headerlink" href="#13-evoluzione-reale-dello-script" title="Permanent link">&para;</a></h2>
+<p>Modifica:</p>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>backup.sh
+</code></pre></div>
+<p>Nuova versione:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Backup started&quot;</span>
+date
+tar<span class="w"> </span>-czf<span class="w"> </span>backup.tar.gz<span class="w"> </span>/home
+</code></pre></div>
+<hr />
+<h2 id="14-commit-significativo">1.4 Commit significativo ✔️<a class="headerlink" href="#14-commit-significativo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>backup.sh
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add tar backup and timestamp&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<hr />
+<h2 id="best-practice-commit">💡 Best practice commit<a class="headerlink" href="#best-practice-commit" title="Permanent link">&para;</a></h2>
+<p>❌ Evita:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;update&quot;</span>
+</code></pre></div>
+<p>✔️ Usa:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add compressed backup with tar&quot;</span>
+</code></pre></div>
+<hr />
+<h1 id="2-workflow-reale-2-script-powershell-windows">2. Workflow reale #2 – Script PowerShell (Windows)<a class="headerlink" href="#2-workflow-reale-2-script-powershell-windows" title="Permanent link">&para;</a></h1>
+<h2 id="scenario_1">Scenario<a class="headerlink" href="#scenario_1" title="Permanent link">&para;</a></h2>
+<p>Script per gestione servizi</p>
+<hr />
+<h2 id="21-file">2.1 File<a class="headerlink" href="#21-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">New-Item</span> <span class="n">monitor</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+<p>Contenuto:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Service</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Status</span> <span class="o">-eq</span> <span class="s2">&quot;Running&quot;</span><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="22-commit">2.2 Commit<a class="headerlink" href="#22-commit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">add</span> <span class="n">monitor</span><span class="p">.</span><span class="n">ps1</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="n">-m</span> <span class="s2">&quot;feat: add service monitoring script&quot;</span>
+<span class="n">git</span> <span class="n">push</span>
+</code></pre></div>
+<hr />
+<h1 id="3-workflow-reale-3-documentazione-tecnica-markdown">3. Workflow reale #3 – Documentazione tecnica (Markdown)<a class="headerlink" href="#3-workflow-reale-3-documentazione-tecnica-markdown" title="Permanent link">&para;</a></h1>
+<h2 id="scenario_2">Scenario<a class="headerlink" href="#scenario_2" title="Permanent link">&para;</a></h2>
+<p>Documenti configurazioni server</p>
+<hr />
+<h2 id="31-creazione-docs">3.1 Creazione docs<a class="headerlink" href="#31-creazione-docs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>docs
+<span class="nb">cd</span><span class="w"> </span>docs
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# Linux Hardening&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>linux-hardening.md
+</code></pre></div>
+<hr />
+<h2 id="32-contenuto-reale">3.2 Contenuto reale<a class="headerlink" href="#32-contenuto-reale" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gh"># Linux Hardening</span>
+
+<span class="gu">## Disable root login</span>
+Edit /etc/ssh/sshd_config:
+
+PermitRootLogin no
+</code></pre></div>
+<hr />
+<h2 id="33-commit">3.3 Commit<a class="headerlink" href="#33-commit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: add linux hardening guide&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<hr />
+<h1 id="4-branching-strategy-semplice-e-professionale">4. Branching Strategy (semplice e professionale)<a class="headerlink" href="#4-branching-strategy-semplice-e-professionale" title="Permanent link">&para;</a></h1>
+<h2 id="modello-main-feature-branch">Modello: <code>main</code> + feature branch ✔️<a class="headerlink" href="#modello-main-feature-branch" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>main
+ ├── feature/backup-improvement
+ ├── feature/logging
+ └── feature/monitoring
+</code></pre></div>
+<hr />
+<h2 id="41-workflow-completo">4.1 Workflow completo<a class="headerlink" href="#41-workflow-completo" title="Permanent link">&para;</a></h2>
+<h3 id="1-aggiorna-main">1. Aggiorna main<a class="headerlink" href="#1-aggiorna-main" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull
+</code></pre></div>
+<hr />
+<h3 id="2-crea-branch">2. Crea branch<a class="headerlink" href="#2-crea-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/backup-rotation
+</code></pre></div>
+<hr />
+<h3 id="3-lavora">3. Lavora<a class="headerlink" href="#3-lavora" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>backup.sh
+</code></pre></div>
+<hr />
+<h3 id="4-commit">4. Commit<a class="headerlink" href="#4-commit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add backup rotation logic&quot;</span>
+</code></pre></div>
+<hr />
+<h3 id="5-push">5. Push<a class="headerlink" href="#5-push" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/backup-rotation
+</code></pre></div>
+<hr />
+<h3 id="6-pull-request-github">6. Pull Request (GitHub)<a class="headerlink" href="#6-pull-request-github" title="Permanent link">&para;</a></h3>
+<p>👉 Apri PR → review → merge su <code>main</code></p>
+<hr />
+<h1 id="5-workflow-reale-completo-team">5. Workflow reale completo (team)<a class="headerlink" href="#5-workflow-reale-completo-team" title="Permanent link">&para;</a></h1>
+<h2 id="caso-lavori-con-altri-admin">Caso: lavori con altri admin<a class="headerlink" href="#caso-lavori-con-altri-admin" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="routine-giornaliera">Routine giornaliera ✔️<a class="headerlink" href="#routine-giornaliera" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/new-script
+</code></pre></div>
+<hr />
+<h2 id="dopo-sviluppo">Dopo sviluppo<a class="headerlink" href="#dopo-sviluppo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add disk monitoring script&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<hr />
+<h2 id="dopo-merge-pr">Dopo merge PR<a class="headerlink" href="#dopo-merge-pr" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull
+</code></pre></div>
+<hr />
+<h1 id="6-gestione-conflitti-scenario-reale">6. Gestione conflitti (scenario reale)<a class="headerlink" href="#6-gestione-conflitti-scenario-reale" title="Permanent link">&para;</a></h1>
+<h2 id="caso">Caso:<a class="headerlink" href="#caso" title="Permanent link">&para;</a></h2>
+<p>Due persone modificano <code>backup.sh</code></p>
+<hr />
+<h2 id="errore">Errore:<a class="headerlink" href="#errore" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>CONFLICT<span class="w"> </span><span class="o">(</span>content<span class="o">)</span>:<span class="w"> </span>Merge<span class="w"> </span>conflict<span class="w"> </span><span class="k">in</span><span class="w"> </span>backup.sh
+</code></pre></div>
+<hr />
+<h2 id="risoluzione-pratica">Risoluzione pratica<a class="headerlink" href="#risoluzione-pratica" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>backup.sh
+</code></pre></div>
+<p>Sistema manualmente</p>
+<hr />
+<p>Poi:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>backup.sh
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: resolve backup script conflict&quot;</span>
+</code></pre></div>
+<hr />
+<h1 id="7-file-gitignore-fondamentale">7. File .gitignore (fondamentale ❗)<a class="headerlink" href="#7-file-gitignore-fondamentale" title="Permanent link">&para;</a></h1>
+<h2 id="scenario-evitare-file-inutili">Scenario: evitare file inutili<a class="headerlink" href="#scenario-evitare-file-inutili" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="esempio-gitignore-per-sysadmin">Esempio <code>.gitignore</code> per sysadmin<a class="headerlink" href="#esempio-gitignore-per-sysadmin" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;*.log&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;*.tmp&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;*.bak&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;.env&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;*.swp&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+</code></pre></div>
+<hr />
+<h2 id="commit">Commit<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore: add gitignore for logs and temp files&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<hr />
+<h1 id="8-workflow-debugging-uso-reale">8. Workflow debugging (uso reale)<a class="headerlink" href="#8-workflow-debugging-uso-reale" title="Permanent link">&para;</a></h1>
+<h2 id="controlla-stato">Controlla stato<a class="headerlink" href="#controlla-stato" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div>
+<hr />
+<h2 id="vedi-cronologia">Vedi cronologia<a class="headerlink" href="#vedi-cronologia" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</code></pre></div>
+<hr />
+<h2 id="vedi-modifiche">Vedi modifiche<a class="headerlink" href="#vedi-modifiche" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff
+</code></pre></div>
+<hr />
+<h1 id="9-caso-reale-rollback-rapido">9. Caso reale: rollback rapido<a class="headerlink" href="#9-caso-reale-rollback-rapido" title="Permanent link">&para;</a></h1>
+<h2 id="torna-a-commit-precedente">Torna a commit precedente<a class="headerlink" href="#torna-a-commit-precedente" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>&lt;commit_id&gt;
+</code></pre></div>
+<hr />
+<h2 id="oppure-reset">Oppure reset<a class="headerlink" href="#oppure-reset" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1
+</code></pre></div>
+<hr />
+<h1 id="checklist-operativa-parte-4">📌 Checklist operativa (Parte 4)<a class="headerlink" href="#checklist-operativa-parte-4" title="Permanent link">&para;</a></h1>
+<ul>
+<li>[ ] Sai versionare script Bash</li>
+<li>[ ] Sai versionare PowerShell</li>
+<li>[ ] Sai gestire Markdown</li>
+<li>[ ] Sai usare feature branch</li>
+<li>[ ] Sai lavorare in team</li>
+<li>[ ] Sai risolvere conflitti</li>
+</ul>
+<hr />
+<h1 id="errori-comuni">🚨 Errori comuni<a class="headerlink" href="#errori-comuni" title="Permanent link">&para;</a></h1>
+<h2 id="lavorare-direttamente-su-main">❌ Lavorare direttamente su <code>main</code><a class="headerlink" href="#lavorare-direttamente-su-main" title="Permanent link">&para;</a></h2>
+<p>👉 Problema:</p>
+<ul>
+<li>codice instabile</li>
+<li>niente review</li>
+</ul>
+<p>✔️ Soluzione:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/...
+</code></pre></div>
+<hr />
+<h2 id="non-fare-git-pull">❌ Non fare <code>git pull</code><a class="headerlink" href="#non-fare-git-pull" title="Permanent link">&para;</a></h2>
+<p>👉 Problema:</p>
+<ul>
+<li>conflitti continui</li>
+</ul>
+<p>✔️ Soluzione:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
+</code></pre></div>
+<hr />
+<h2 id="commit-troppo-grandi">❌ Commit troppo grandi<a class="headerlink" href="#commit-troppo-grandi" title="Permanent link">&para;</a></h2>
+<p>👉 Problema:</p>
+<ul>
+<li>difficile debug</li>
+</ul>
+<p>✔️ Soluzione:</p>
+<ul>
+<li>commit piccoli e logici</li>
+</ul>
+<hr />
+<h2 id="non-usare-gitignore">❌ Non usare <code>.gitignore</code><a class="headerlink" href="#non-usare-gitignore" title="Permanent link">&para;</a></h2>
+<p>👉 Problema:</p>
+<ul>
+<li>repo sporco</li>
+</ul>
+<hr />
+<h1 id="fine-parte-4">🔚 Fine Parte 4<a class="headerlink" href="#fine-parte-4" title="Permanent link">&para;</a></h1>
+<p>Ora sei già operativo in contesti reali:</p>
+<ul>
+<li>script versionati</li>
+<li>documentazione gestita</li>
+<li>branching professionale</li>
+<li>lavoro in team</li>
+</ul>
+<hr />
+<p>👉 Scrivi <strong>"continua"</strong> per la <strong>Parte 5: best practice avanzate + struttura repository + naming professionale</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
