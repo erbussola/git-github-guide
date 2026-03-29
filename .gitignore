@@ -1,0 +1,74 @@
+# =========================
+# 📁 MkDocs
+# =========================
+site/
+
+# =========================
+# 🐍 Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+# 📦 Dependencies
+# =========================
+pip-log.txt
+pip-delete-this-directory.txt
+
+# =========================
+# 🔐 Environment variables
+# =========================
+.env
+.env.*
+
+# =========================
+# 🧪 Testing
+# =========================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# =========================
+# 🧠 IDE / Editor
+# =========================
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# =========================
+# 💻 OS (Windows)
+# =========================
+Thumbs.db
+Desktop.ini
+
+# =========================
+# 📄 Logs
+# =========================
+*.log
+
+# =========================
+# 📦 Cache vari
+# =========================
+.cache/
+
+# MkDocs PDF plugin
+*.pdf
+
+# Output export
+*.docx
